@@ -15,9 +15,9 @@ export default {
   },methods: {
     clicked(isUp,index){
 if(isUp){
-  this.$emit("changePostOrder", index, index + 1);
-}else{
   this.$emit("changePostOrder", index, index - 1);
+}else{
+  this.$emit("changePostOrder", index, index + 1);
 }
     }
   }

@@ -8,11 +8,10 @@
 <script>
 import ActiontBox from "@/components/ActiontBox";
 import PostBox from "@/components/PostBox";
+import api from "../api/Post";
 export default {
   name: 'PostPage',
-  props: {
-    msg: String
-  }, components: {
+  components: {
     ActiontBox,PostBox
   },data: function() {
     return {
@@ -20,21 +19,30 @@ export default {
       actions:[],
       newActionIndex:0
     };
-  },methods: {
+  },created() {
+  this.getPosts()
+    },
+
+  methods: {
+    getPosts(){
+      api.getPosts().then((data) => {
+        this.posts=data.data.splice(0, 5)
+      })
+    },
 changePostOrder(firstIndex,secondIndex){
   this.actions.push({
     firstIndex:firstIndex,
     secondIndex:secondIndex,
     indexAction:this.newActionIndex,
-    element:this.posts[firstIndex]
+    element:this.posts[firstIndex].title
   })
   this.swapArray(this.posts,firstIndex,secondIndex)
   this.newActionIndex++
 
 },swapArray(array,firstIndex,secondIndex){
       let temporary =array[firstIndex]
-      array[secondIndex]=array[firstIndex]
-      array[firstIndex]=temporary
+      array[firstIndex]=array[secondIndex]
+      array[secondIndex]=temporary
     },
     actionTravel(id){
 for(let i=this.actions.length-1;i>=id;i--){

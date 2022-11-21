@@ -1,6 +1,6 @@
 <template>
   <div class="action-box">
-   <ActiontItem />
+   <ActiontItem v-for="item in actions.slice().reverse()" :action="item" :key="item.indexAction" @actionTravel="actionTravel" />
   </div>
 </template>
 
@@ -9,9 +9,13 @@ import ActiontItem from "./ActiontItem";
 export default {
   name: 'ActionBox',
   props: {
-    msg: String
+    actions: []
   },components: {
     ActiontItem
+  },methods: {
+    actionTravel(id){
+      this.$emit("actionTravel", id);
+    }
   }
 }
 </script>
