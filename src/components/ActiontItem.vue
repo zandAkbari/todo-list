@@ -2,7 +2,7 @@
   <div class="action-item">
    <div>
      {{action.firstIndex}}|  {{action.secondIndex}} |{{action.element}}
-     <button @click="travel">time travel</button>
+     <button class="time-travel" @click="travel">time travel</button>
    </div>
   </div>
 </template>
@@ -11,7 +11,7 @@
 export default {
   name: 'HelloWorld',
   props: {
-    action: []
+    action: Object
   },methods: {
     travel(){
       this.$emit("actionTravel", this.action.indexAction);

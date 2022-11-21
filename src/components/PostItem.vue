@@ -1,8 +1,8 @@
 <template>
   <div class="post-item">
 <div>{{post.title}}</div>
-    <button v-if="!isFirst" @click="click(true)"> up </button>
-    <button  v-if="!isLast" @click="click(false)"> down</button>
+    <button class="up-arrow" v-if="!isFirst" @click="click(true)"> up </button>
+    <button class="down-arrow" v-if="!isLast" @click="click(false)"> down</button>
   </div>
 </template>
 
@@ -15,7 +15,12 @@ export default {
     index:Number
   },methods: {
     click(isUp){
-      this.$emit("clicked", isUp, this.index);
+      if(isUp){
+        this.$emit("clickUp",isUp, this.index);
+      }else {
+        this.$emit("clickDown",isUp, this.index);
+      }
+
     },
 
   }, computed: {

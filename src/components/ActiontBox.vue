@@ -1,6 +1,6 @@
 <template>
   <div class="action-box">
-   <ActiontItem v-for="item in actions.slice().reverse()" :action="item" :key="item.indexAction" @actionTravel="actionTravel" />
+   <ActiontItem  v-for="item in actionsReverse" :action="item" :key="item.indexAction" @actionTravel="actionTravel" />
   </div>
 </template>
 
@@ -9,14 +9,17 @@ import ActiontItem from "./ActiontItem";
 export default {
   name: 'ActionBox',
   props: {
-    actions: []
+    actions: Array
   },components: {
     ActiontItem
   },methods: {
     actionTravel(id){
       this.$emit("actionTravel", id);
     }
-  }
+  } ,computed: {
+    actionsReverse: function() {
+      return this.actions.length ? this.actions.slice().reverse() : [];
+    }}
 }
 </script>
 

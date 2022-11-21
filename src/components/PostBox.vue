@@ -1,6 +1,6 @@
 <template>
   <div class="post-box">
-   <PostItem v-for="(item , index) in posts" :post="item" :index="index" :length="posts.length"  :key="item.id" @clicked="clicked" />
+   <PostItem v-for="(item , index) in posts" :post="item" :index="index" :length="posts.length"  :key="item.id" @clickUp="clicked" @clickDown="clicked" />
   </div>
 </template>
 
