@@ -1,6 +1,9 @@
 <template>
-  <div class="post-box">
+  <div class="post-box p-4 w-full md:w-1/2">
+    <div class="w-full text-left">Sortable Post List</div>
+    <TransitionGroup name="list"  >
    <PostItem v-for="(item , index) in posts" :post="item" :index="index" :length="posts.length"  :key="item.id" @clickUp="clicked" @clickDown="clicked" />
+    </TransitionGroup>
   </div>
 </template>
 
@@ -40,4 +43,9 @@ li {
 a {
   color: #42b983;
 }
+</style>
+<style lang="scss">
+
+
+
 </style>

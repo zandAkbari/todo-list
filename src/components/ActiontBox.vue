@@ -1,6 +1,11 @@
 <template>
-  <div class="action-box">
+  <div class="action-box w-full md:w-1/2 p-4 ">
+    <div class="action-header flex items-center p-2">
+List of actions comitted
+    </div>
+    <TransitionGroup name="list"  >
    <ActiontItem  v-for="item in actionsReverse" :action="item" :key="item.indexAction" @actionTravel="actionTravel" />
+    </TransitionGroup>
   </div>
 </template>
 
@@ -25,18 +30,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.action-header{
+background: white;
+  height: 4rem;
 }
 </style>

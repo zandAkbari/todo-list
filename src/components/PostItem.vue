@@ -1,9 +1,15 @@
 <template>
-  <div class="post-item">
-<div>{{post.title}}</div>
-    <button class="up-arrow" v-if="!isFirst" @click="click(true)"> up </button>
-    <button class="down-arrow" v-if="!isLast" @click="click(false)"> down</button>
-  </div>
+  <div class="post-item w-full  p-2 mt-2 justify-between flex flex-row">
+    <div class="p-2 flex items-center ">
+     {{post.title}}
+    </div>
+    <div class="p-2 flex items-center h-100">
+      <div class="flex flex-col">
+      <i class="up-arrow" v-if="!isFirst" @click="click(true)"></i>
+      <i class="down-arrow" v-if="!isLast" @click="click(false)"></i>
+     </div>
+    </div>
+    </div>
 </template>
 
 <script>
@@ -35,18 +41,28 @@ export default {
 </script>
 
 <style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
+.post-item{
+  background: white;
+  border-radius: 1rem;
+  min-height: 4rem;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
+.up-arrow {
+  border: solid #4a30c1;
+  border-width: 0 2px 2px 0;
   display: inline-block;
-  margin: 0 10px;
+  padding: 2px;
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  margin-bottom: .25rem;
 }
-a {
-  color: #42b983;
+
+.down-arrow {
+  border: solid #4a30c1;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 2px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  margin-top: .25rem;
 }
 </style>
