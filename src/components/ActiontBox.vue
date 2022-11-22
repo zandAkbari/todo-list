@@ -9,6 +9,7 @@ List of actions comitted
   </div>
 </template>
 
+
 <script>
 import ActiontItem from "./ActiontItem";
 export default {
