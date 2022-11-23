@@ -1,12 +1,12 @@
 <template>
   <div class="post-item w-full  p-2 mt-2 justify-between flex flex-row">
     <div class="p-2 flex items-center ">
-     {{post.title}}
+       {{this.title}}
     </div>
     <div class="p-2 flex items-center h-100">
       <div class="flex flex-col">
-      <i class="up-arrow" v-if="!isFirst" @click="click(true)"></i>
-      <i class="down-arrow" v-if="!isLast" @click="click(false)"></i>
+      <i class="up-arrow" v-if="index <= 0 ? false : true" @click="click(true)"></i>
+      <i class="down-arrow" v-if="index >= length-1 ? false : true" @click="click(false)"></i>
      </div>
     </div>
     </div>
@@ -30,12 +30,11 @@ export default {
     },
 
   }, computed: {
-    isFirst: function() {
-      return this.index > 0 ? false : true;
+    title: function() {
+      //Create title text with id of a post
+      return  `Post ${this.post.id}`;
     },
-    isLast: function() {
-      return this.index < this.length-1 ? false : true;
-    },
+
   }
 }
 </script>
@@ -54,6 +53,7 @@ export default {
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
   margin-bottom: .25rem;
+  cursor: pointer;
 }
 
 .down-arrow {
@@ -64,5 +64,6 @@ export default {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   margin-top: .25rem;
+  cursor: pointer;
 }
 </style>

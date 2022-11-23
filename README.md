@@ -1,5 +1,5 @@
-# todo-list
-
+# This repository is a web app that was created with vue3 and shows a todo-list and position of the list can change with an arrow key and it has a time travel
+### Used from vue3 , jest , tailwind
 ## Project setup
 ```
 npm install

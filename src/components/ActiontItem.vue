@@ -2,7 +2,7 @@
   <div class="action-item">
    <div class="flex items-center justify-between p-2">
      <div class="p-2 flex items-center">
-      move post {{action.element}} from index {{action.firstIndex}} to index  {{action.secondIndex}}
+      move post {{action.element}} from index {{action.firstIndex+1}} to index  {{action.secondIndex+1}}
      </div>
 
      <button class="time-travel p-2 flex items-center" @click="travel">
@@ -25,7 +25,7 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped lang="scss">
 .action-item{
   background: white;

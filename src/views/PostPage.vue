@@ -26,11 +26,13 @@ export default {
 
   methods: {
     getPosts(){
+      //Call API to get posts data
       api.getPosts().then((data) => {
         this.posts=data.data.splice(0, 5)
       })
     },
 changePostOrder(firstIndex,secondIndex){
+      //Add action to stack actions and call function to change the position of posts array
   this.actions.push({
     firstIndex:firstIndex,
     secondIndex:secondIndex,
@@ -41,11 +43,13 @@ changePostOrder(firstIndex,secondIndex){
   this.newActionIndex++
 
 },swapArray(array,firstIndex,secondIndex){
+      //Change element positions in an array
       let temporary =array[firstIndex]
       array[firstIndex]=array[secondIndex]
       array[secondIndex]=temporary
     },
     actionTravel(id){
+      //Do changes from the selected action until the first action
 for(let i=this.actions.length-1;i>=id;i--){
   this.swapArray(this.posts,this.actions[i].secondIndex,this.actions[i].firstIndex)
   this.newActionIndex=this.actions[i].indexAction
@@ -56,7 +60,7 @@ this.actions.pop()
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped lang="scss">
 .post-page{
 

@@ -17,6 +17,7 @@ export default {
     PostItem
   },methods: {
     clicked(isUp,index){
+      //Call emit to change post order with old and new index
 if(isUp){
   this.$emit("changePostOrder", index, index - 1);
 }else{
@@ -27,25 +28,4 @@ if(isUp){
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
-<style lang="scss">
 
-
-
-</style>
